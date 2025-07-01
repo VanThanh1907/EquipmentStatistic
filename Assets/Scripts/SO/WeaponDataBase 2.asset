@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22393dd7fcc9ef247b3d76f349bc2533, type: 3}
+  m_Name: WeaponDataBase 2
+  m_EditorClassIdentifier: 
+  WeaponDatas:
+  - weaponName: AK47
+    pathIcon: AK47
+    damage: 100
+    ammo: 5
+    dispersion: 4
+    rateOfFire: 100
+    reloadSpeed: 0
+    weaponIcon: {fileID: 21300000, guid: 6bba392a26b1f8e47b103910cf5f1fc9, type: 3}
+    status: 0
+  - weaponName: AWM
+    pathIcon: AWM
+    damage: 100
+    ammo: 5
+    dispersion: 4
+    rateOfFire: 100
+    reloadSpeed: 0
+    weaponIcon: {fileID: 21300000, guid: aa9a70ae369a1b84c8178e5e9247708e, type: 3}
+    status: 0
+  - weaponName: Barrett
+    pathIcon: Barrett
+    damage: 100
+    ammo: 5
+    dispersion: 4
+    rateOfFire: 100
+    reloadSpeed: 0
+    weaponIcon: {fileID: 21300000, guid: 7a025d926cdced5469baa6516d9f5974, type: 3}
+    status: 0
+  - weaponName: Fal
+    pathIcon: Fal
+    damage: 100
+    ammo: 5
+    dispersion: 4
+    rateOfFire: 100
+    reloadSpeed: 0
+    weaponIcon: {fileID: 21300000, guid: 80c9236999ba78e4f87e61165c6b2893, type: 3}
+    status: 0
+  - weaponName: M16
+    pathIcon: M16
+    damage: 100
+    ammo: 5
+    dispersion: 4
+    rateOfFire: 100
+    reloadSpeed: 0
+    weaponIcon: {fileID: 21300000, guid: 29bedb8c56af9fc4a8d7e6c86c7793b9, type: 3}
+    status: 0
+  - weaponName: Mp40
+    pathIcon: Mp40
+    damage: 100
+    ammo: 5
+    dispersion: 4
+    rateOfFire: 100
+    reloadSpeed: 0
+    weaponIcon: {fileID: 21300000, guid: 6ccdf5e5481469e4996e5f9797421beb, type: 3}
+    status: 0
+  - weaponName: ShotGun
+    pathIcon: ShotGun
+    damage: 100
+    ammo: 5
+    dispersion: 4
+    rateOfFire: 100
+    reloadSpeed: 0
+    weaponIcon: {fileID: 21300000, guid: 4ce1179ddda242141a452e9a59342c92, type: 3}
+    status: 0
+  - weaponName: SKS
+    pathIcon: SKS
+    damage: 100
+    ammo: 5
+    dispersion: 4
+    rateOfFire: 100
+    reloadSpeed: 0
+    weaponIcon: {fileID: 21300000, guid: fa8589f873e284447a20630817e19318, type: 3}
+    status: 0
+  - weaponName: AK12
+    pathIcon: AK12
+    damage: 100
+    ammo: 5
+    dispersion: 4
+    rateOfFire: 100
+    reloadSpeed: 0
+    weaponIcon: {fileID: 21300000, guid: a1e76c4316f179e4280a049add182f0b, type: 3}
+    status: 0
