@@ -30,6 +30,7 @@ public class UIManager : Singleton <UIManager>
         WeaponManager.Instance.SaveData();
     }
 
+
     // Hàm cập nhật lại UI hiển thị thông tin của weapon đang chọn
     public void UpdateWeaponUI(WeaponUI currentWeapon)
     {
@@ -41,17 +42,18 @@ public class UIManager : Singleton <UIManager>
         rateText.text = currentWeapon.weapon.rateOfFire + " RPM";
         reloadText.text = currentWeapon.weapon.reloadSpeed + "%";
         ammoText.text = currentWeapon.weapon.ammo + "/100";
-        InteractiveButton(currentWeapon);
+        UpdateButtonUI(currentWeapon);
     }
 
-    //CAp nhat trang thai va mau sac
-    public void InteractiveButton(WeaponUI weaponUI)
+
+    //CAp nhat trang thai va mau sac btn.
+    public void UpdateButtonUI(WeaponUI weaponUI)
     {
-         // Nút USE chỉ được bật nếu không Rent Out
+        // Nút USE chỉ được bật nếu không Rent Out
         btnUse.interactable = weaponUI.weapon.status != WeaponStatus.RentedOut;
         btnUseText.color = btnUse.interactable ? activeColorUse : disabledColor;
-        
-          //Rent Out bật nếu không đang Use
+
+        //Rent Out bật nếu không đang Use
         btnRentOut.interactable = weaponUI.weapon.status != WeaponStatus.Used;
         btnRentOutText.color = btnRentOut.interactable ? activeColorRentOut : disabledColor;
     }

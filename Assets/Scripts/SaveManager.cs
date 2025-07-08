@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 
 
-//Lớp này dùng để quản lý việc lưu và tải dữ liệu game
+//Class quán lý lưu, dọc dữ liệu.
 public static class SaveManager
 {
     private static string path = Application.persistentDataPath + "/save.json";

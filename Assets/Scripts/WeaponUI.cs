@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections.Generic;
-using System.Xml.Linq;
+
 
 public class WeaponUI : MonoBehaviour
 {
@@ -17,9 +16,10 @@ public class WeaponUI : MonoBehaviour
     [SerializeField] private Color usedColor = new Color(0.05f, 1f, 0.05f);
 
 
-    // Dung de khoi tao UI cua mot vu khi
+   // Khởi tạo UI wp
     public void InitUIWeapon(WeaponData data)
     {
+        //Gán ảnh,tắt hết boder đi,set trạng thái cho wp
         weapon = data;
         icon.sprite = data.weaponIcon;
         borderObject.SetActive(false);
@@ -31,25 +31,26 @@ public class WeaponUI : MonoBehaviour
     }
 
     
-    //Set trạng thai cho sung
+    //Set trạng thai wp
     public void SetStatusWeapon(WeaponStatus status)
     {
         switch (status)
         {
+            //USE
             case WeaponStatus.Used:
                 statusText.text = "Used";
                 statusText.color = usedColor;
                 break;
-           
+           //RENTED OUT
             case WeaponStatus.RentedOut:
                 statusText.text = "Rented Out";
                 statusText.color = rentedColor;
                 break;
+            //NONE
             default:
                 statusText.text = "";
                 break;
         }
-        UIManager.Instance.InteractiveButton(this);
-
+        UIManager.Instance.UpdateButtonUI(this);
     }
 }

@@ -4,12 +4,14 @@ using UnityEngine;
 using System;
 using Newtonsoft.Json;
 
+// SO để lưu dữ liệu
 [CreateAssetMenu(fileName = "WeaponDataBase", menuName = "Weapons/Weapon Database")]
 public class WeaponDataBase : ScriptableObject
 {
     public List<WeaponData> WeaponDatas = new List<WeaponData>();
 
 }
+
 [System.Serializable]
 public class WeaponData
 {
@@ -17,10 +19,9 @@ public class WeaponData
     public int damage,ammo;
     public float dispersion, rateOfFire, reloadSpeed;
     [JsonIgnore] public Sprite weaponIcon;
-   
-   
     public WeaponStatus status = WeaponStatus.None;
 
+    // Clone wpData
     public WeaponData Clone()
     {
         return new WeaponData
@@ -37,6 +38,7 @@ public class WeaponData
         };
     }
 
+    //Tăng chỉ số khi nâng cấp
     public void Upgrade()
     {
         damage += 1;
@@ -44,6 +46,7 @@ public class WeaponData
     }
 }
 
+// Vũ khí có 3 trang thái.
 public enum WeaponStatus
 {
     None,

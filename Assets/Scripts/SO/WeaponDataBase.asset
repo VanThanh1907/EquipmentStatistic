@@ -15,8 +15,8 @@ MonoBehaviour:
   WeaponDatas:
   - weaponName: AK47
     pathIcon: AK47
-    damage: 100
-    ammo: 5
+    damage: 200
+    ammo: 3
     dispersion: 4
     rateOfFire: 100
     reloadSpeed: 0
@@ -24,47 +24,47 @@ MonoBehaviour:
     status: 0
   - weaponName: AWM
     pathIcon: AWM
-    damage: 100
-    ammo: 5
-    dispersion: 4
-    rateOfFire: 100
-    reloadSpeed: 0
+    damage: 333
+    ammo: 3
+    dispersion: 5
+    rateOfFire: 200
+    reloadSpeed: 3
     weaponIcon: {fileID: 21300000, guid: aa9a70ae369a1b84c8178e5e9247708e, type: 3}
     status: 0
   - weaponName: Barrett
     pathIcon: Barrett
-    damage: 100
-    ammo: 5
-    dispersion: 4
-    rateOfFire: 100
-    reloadSpeed: 0
+    damage: 33
+    ammo: 3
+    dispersion: 55
+    rateOfFire: 5
+    reloadSpeed: 2
     weaponIcon: {fileID: 21300000, guid: 7a025d926cdced5469baa6516d9f5974, type: 3}
     status: 0
   - weaponName: Fal
     pathIcon: Fal
-    damage: 100
-    ammo: 5
-    dispersion: 4
-    rateOfFire: 100
-    reloadSpeed: 0
+    damage: 44
+    ammo: 4
+    dispersion: 5
+    rateOfFire: 666
+    reloadSpeed: 7
     weaponIcon: {fileID: 21300000, guid: 80c9236999ba78e4f87e61165c6b2893, type: 3}
     status: 0
   - weaponName: M16
     pathIcon: M16
-    damage: 100
-    ammo: 5
-    dispersion: 4
-    rateOfFire: 100
-    reloadSpeed: 0
+    damage: 66
+    ammo: 2
+    dispersion: 5
+    rateOfFire: 666
+    reloadSpeed: 4
     weaponIcon: {fileID: 21300000, guid: 29bedb8c56af9fc4a8d7e6c86c7793b9, type: 3}
     status: 0
   - weaponName: Mp40
     pathIcon: Mp40
-    damage: 100
+    damage: 35
     ammo: 5
-    dispersion: 4
+    dispersion: 6
     rateOfFire: 100
-    reloadSpeed: 0
+    reloadSpeed: 2
     weaponIcon: {fileID: 21300000, guid: 6ccdf5e5481469e4996e5f9797421beb, type: 3}
     status: 0
   - weaponName: ShotGun

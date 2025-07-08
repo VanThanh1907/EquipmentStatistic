@@ -1,9 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
+
 
 //Class quan trong dung de quản lý các thông tin logic của súng
 public class WeaponManager : Singleton<WeaponManager>
@@ -13,29 +11,26 @@ public class WeaponManager : Singleton<WeaponManager>
     public List<WeaponData> allWeapons;
     public WeaponUI selectedWeapon;
     public WeaponUI usingWeapon;
-
-
     public WeaponUI weaponPrefab;
-    public Transform weaponListContent;
     private List<WeaponUI> weaponUIs = new List<WeaponUI>();
+    public Transform weaponListContent;
 
    
     private void Start()
     {
-        // Tạo dữ liệu và UI weapon
+        //Tạo dữ liệu và UI
         InitWeaponUIs();
         CreateWeaponUI();
-        //Chọn súng đầu tiên trong list
         SelectWeapon(weaponUIs[0]);
         weaponUIs[0].borderObject.SetActive(true);
     }
 
 
-    // Hàm này dùng để khởi tạo dữ liệu vũ khí từ file đã lưu.
+    //Hàm khởi tạo dữ liệu wp
     private void InitWeaponUIs()
     {
         List<WeaponData> saved = SaveManager.LoadData();
-        // Nếu chưa có dữ liệu ,tạo dữ liệu từ database gốc
+        // Nếu chưa có dữ liệu,tạo dữ liệu từ database gốc
         if (saved == null)
         {
             allWeapons = weaponManager.WeaponDatas.Select(w => w.Clone()).ToList();
@@ -55,7 +50,8 @@ public class WeaponManager : Singleton<WeaponManager>
         allWeapons = saved;
     }
 
-    //Hàm này để khởi tạo súng
+
+    //Hàm tạo UI wp
     public void CreateWeaponUI()
     {
         //Load qua danh sach cua súng để tạo UI
@@ -65,14 +61,12 @@ public class WeaponManager : Singleton<WeaponManager>
             item.InitUIWeapon(weapon);
             weaponUIs.Add(item);
         }
-        //Set súng đầu la súng dang được chọn
         selectedWeapon = weaponUIs[0];
-        //Gán súng cuối cùng được Use cho usedWeapon
         usingWeapon = weaponUIs.FirstOrDefault(w => w.weapon.status == WeaponStatus.Used);
     }
 
 
-    //Hàm này sẽ gọi khi click chọn 1 weapon
+    //Hàm gọi khi click chọn 1 wp
     public void SelectWeapon(WeaponUI weaponUI)
     {
         // Nếu click vào súng khác thì tắt viền súng hiện tại đi
@@ -80,10 +74,9 @@ public class WeaponManager : Singleton<WeaponManager>
         {
             selectedWeapon.borderObject.SetActive(false);
         }
-        //Set súng hiện tại là súng mới chọn
+        //Gán súng vừa click và selectedWP,bật viền và cập nhật UI
         selectedWeapon = weaponUI;
         selectedWeapon.borderObject.SetActive(true);
-        //Cập nhật thông tin
         UIManager.Instance.UpdateWeaponUI(selectedWeapon);
     }
 
@@ -98,22 +91,21 @@ public class WeaponManager : Singleton<WeaponManager>
     public void SetUseStatus()
     {
 
-        //Nếu trang thái đang sử dụng click vào thì sẽ về none
+        //Nếu trang thái đang USE thì về NONE
         if (selectedWeapon.weapon.status == WeaponStatus.Used)
         {
             UpdateWeaponStatus(selectedWeapon, WeaponStatus.None);
-            // Khi về None thì ko set nó là lastUsed nữa
             usingWeapon = null;
         }
         else
         {
-            //Nếu có used rồi thì tắt use chỗ đó di sau đó set used cái dang chon
+            // Đưa trạng thái của súng đang used về None
             if (usingWeapon != null && usingWeapon != selectedWeapon)
             {
                 UpdateWeaponStatus(usingWeapon, WeaponStatus.None);
             }
             UpdateWeaponStatus(selectedWeapon, WeaponStatus.Used);
-            //Cap nhat lai usedWeapon
+            //Cap nhat lai usingWeapon
             usingWeapon = selectedWeapon;
         }
         SaveManager.SaveData(allWeapons);
@@ -123,8 +115,7 @@ public class WeaponManager : Singleton<WeaponManager>
     //Cập nhật khi click RentOUT
     public void SetRentOutStatus()
     {
-
-       
+        //Nếu đang RENT thì chuyển thành NONE và ngược lại.
         if (selectedWeapon.weapon.status == WeaponStatus.RentedOut)
         {
             UpdateWeaponStatus(selectedWeapon, WeaponStatus.None);
@@ -136,5 +127,6 @@ public class WeaponManager : Singleton<WeaponManager>
 
         SaveManager.SaveData(allWeapons);
     }
+
     public void SaveData() => SaveManager.SaveData(allWeapons);
 }
